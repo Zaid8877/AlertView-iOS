@@ -18,24 +18,6 @@ A fully customizable, animated alert view for iOS using UIKit. This component pr
 
 ---
 
-## 🛠️ Components Overview
-
-### `AlertView`
-Custom view that handles:
-- Presenting alerts modally over the screen
-- Setting title, description, and button labels
-- Delegating callbacks like `okTapped`, `confirmTapped`, and `cancelTapped`
-- Animations and layout configuration
-
-### `GradientBackgroundView`
-- Handles background gradient rendering
-- Manages grain overlay with animation
-
-### `PeerGrainAnimation`
-- Animates image sequences to produce a static/noise effect
-
----
-
 ## 🚀 Usage
 
 ### ✅ Show Alert
@@ -47,3 +29,87 @@ alert.viewController = self
 alert.show(type: .alert,
            title: "Alert Title",
            description: "This is a custom alert.")
+```
+
+### ❓ Show Confirm Request
+
+```swift
+alert.show(type: .request,
+           title: "Are you sure?",
+           description: "Do you really want to continue?",
+           confirmText: "Yes",
+           cancelText: "No")
+```
+
+### 🎯 Implement Delegate
+
+```swift
+extension YourViewController: AlertViewDelegate {
+    func confirmTapped() {
+        // Handle confirmation
+    }
+
+    func cancelTapped() {
+        // Handle cancellation
+    }
+
+    func alertViewOkPressed() {
+        // OK was pressed
+    }
+
+    func alertViewPresent() {
+        // Alert is shown
+    }
+
+    func alertViewDisappear() {
+        // Alert is dismissed
+    }
+}
+```
+
+---
+
+## 📐 Customization
+
+This alert relies on a few design-system components (not included):
+
+- `AlertFonts`: Define your custom fonts here
+- `Colors`: Custom color struct used for background, labels, and buttons
+- `LayoutConstants`: Spacing and sizing used in layout constraints
+
+You can replace or extend these with your own implementations.
+
+---
+
+## 📱 Requirements
+
+- iOS 13.0+
+- UIKit-based app
+- Swift 5+
+
+---
+
+## 🔧 Installation
+
+Drag and drop the following files into your project:
+
+- `AlertView.swift`
+- `GradientBackgroundView.swift`
+- `PeerGrainAnimation.swift`
+
+---
+
+## 🤝 Contribution
+
+Contributions, issues, and feature requests are welcome!  
+Feel free to open a pull request or an issue.
+
+---
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+---
+
+Made with ❤️ by Zaid Tayyab
